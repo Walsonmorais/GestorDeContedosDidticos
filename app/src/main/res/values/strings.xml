@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Gestor De Conteúdos Didáticos</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity__menu">Menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_publish">Publish</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity__login">Login</string>
+    <string name="title_activity__register">Register Users</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity__search">Search Files</string>
+</resources>
