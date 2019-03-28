@@ -1,6 +1,8 @@
 <resources>
+
+    <!-- TODO: Names activities and fragments -->
     <string name="app_name">Gestor De Conteúdos Didáticos</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Actualizar</string>
     <string name="title_activity__menu">Menu</string>
     <string name="title_home">Home</string>
     <string name="title_publish">Publish</string>
@@ -8,7 +10,29 @@
     <string name="title_activity__login">Login</string>
     <string name="title_activity__register">Register Users</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Texts and Hints -->
+
+    <!-- activity main -->
+    <string name="button_create_account">CRIAR CONTA</string>
+    <string name="button_enter_account">INICIAR SECÇÃO</string>
+
+    <!-- activity loggin -->
+
+    <string name="text_enter_account">Entre para sua conta</string>
+    <string name="hint_email">Email:</string>
+    <string name="hint_password">Password:</string>
+    <string name="text_forget_password">Esqueceste a palavra-passe?</string>
+    <string name="button_login">LOG IN</string>
+
+    <!-- activity register -->
+    <string name="text_load_picture">Carregue uma Foto</string>
+    <string name="hint_name">Nome:</string>
+    <string name="hint_email_account">Conta de Email:</string>
+    <string name="hint_password_account">Password:</string>
+    <string name="hint_prove_password">Comprovar Password:</string>
+    <string name="button_save_account">SALVAR CONTA</string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity__search">Search Files</string>
 </resources>
