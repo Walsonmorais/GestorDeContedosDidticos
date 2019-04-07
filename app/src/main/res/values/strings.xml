@@ -27,9 +27,8 @@
     <!-- activity register -->
     <string name="text_load_picture">Carregue uma Foto</string>
     <string name="hint_name">Nome:</string>
-    <string name="hint_email_account">Conta de Email:</string>
+    <string name="hint_email_account">Email:</string>
     <string name="hint_password_account">Password:</string>
-    <string name="hint_prove_password">Comprovar Password:</string>
     <string name="button_save_account">SALVAR CONTA</string>
     <string name="hint_number">Numero:</string>
 

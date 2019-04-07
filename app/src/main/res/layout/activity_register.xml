@@ -10,7 +10,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_height="320dp"
+        android:layout_height="300dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="24dp"
@@ -39,7 +39,6 @@
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="@string/hint_name"
@@ -75,42 +74,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/hint_password_account"
-        android:inputType="number|textPersonName|textPassword"
+        android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/edit_prove_password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save_account"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edit_email_account" />
-
-    <EditText
-        android:id="@+id/edit_prove_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:hint="@string/hint_prove_password"
-        android:inputType="number|textPersonName|textPassword"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/extraColor"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save_account"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_account" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_email_account"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/btn_save_account"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
         android:background="@drawable/background_style_button"
         android:text="@string/button_save_account"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -120,22 +103,21 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edit_prove_password"
-
-        />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_account" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_user"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/Photo_Gallery"
+        android:src="@drawable/photo_gallery"
         app:civ_border_color="@color/colorAccent"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText

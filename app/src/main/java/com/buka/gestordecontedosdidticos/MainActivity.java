@@ -1,5 +1,6 @@
 package com.buka.gestordecontedosdidticos;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_enter_account;
     private Button btn_create_account;
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btn_enter_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(MainActivity.this, Activity_Login.class);
                 startActivity(intent);
             }
@@ -32,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         btn_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Activity_Menu.class);
+
+                Intent intent = new Intent(MainActivity.this, Activity_Register.class);
                 startActivity(intent);
             }
         });

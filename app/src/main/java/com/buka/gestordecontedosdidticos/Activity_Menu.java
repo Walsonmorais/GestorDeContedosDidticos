@@ -1,4 +1,4 @@
-package com.buka.gestordecontedosdidticos;
+ package com.buka.gestordecontedosdidticos;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

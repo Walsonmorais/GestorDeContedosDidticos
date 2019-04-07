@@ -9,7 +9,8 @@
             <gradient
                 android:startColor="@color/colorPrimaryDark"
                 android:endColor="@color/colorAccent"
-                android:angle="135"/>
+
+                />
         </shape>
     </item>
 </selector>
