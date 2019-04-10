@@ -31,6 +31,7 @@
     <string name="hint_password_account">Password:</string>
     <string name="button_save_account">SALVAR CONTA</string>
     <string name="hint_number">Numero:</string>
+    <string name="hint_edit_confirm_password">Confirmar Password:</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

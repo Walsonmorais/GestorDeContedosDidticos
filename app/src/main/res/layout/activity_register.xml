@@ -10,7 +10,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="330dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="24dp"
@@ -74,13 +74,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/hint_password_account"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save_account"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="@+id/view"
@@ -92,7 +90,6 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/background_style_button"
         android:text="@string/button_save_account"
@@ -103,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_account" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_confirm_password" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_user"
@@ -135,6 +132,18 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/edit_name"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/edit_confirm_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_edit_confirm_password"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_account" />
 
 
 </android.support.constraint.ConstraintLayout>
