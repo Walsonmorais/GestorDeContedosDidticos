@@ -3,12 +3,13 @@
     <!-- TODO: Names activities and fragments -->
     <string name="app_name">Gestor De Conteúdos Didáticos</string>
     <string name="action_refresh">Actualizar</string>
-    <string name="title_activity__menu">Menu</string>
     <string name="title_home">Home</string>
     <string name="title_publish">Publish</string>
     <string name="title_profile">Profile</string>
-    <string name="title_activity__login">Login</string>
-    <string name="title_activity__register">Register Users</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register Users</string>
+    <string name="title_activity_search">Search Files</string>
+    <string name="title_activity_menu">Menu</string>
 
     <!-- TODO: Texts and Hints -->
 
@@ -19,22 +20,47 @@
     <!-- activity loggin -->
 
     <string name="text_enter_account">Entre para sua conta</string>
-    <string name="hint_email">Email:</string>
-    <string name="hint_password">Password:</string>
-    <string name="text_forget_password">Esqueceste a palavra-passe?</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="text_forget_password">Esqueceste a Password?</string>
     <string name="button_login">LOG IN</string>
 
     <!-- activity register -->
     <string name="text_load_picture">Carregue uma Foto</string>
-    <string name="hint_name">Nome:</string>
-    <string name="hint_email_account">Email:</string>
-    <string name="hint_password_account">Password:</string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_email_account">Email</string>
+    <string name="hint_password_account">Password</string>
     <string name="button_save_account">SALVAR CONTA</string>
-    <string name="hint_number">Numero:</string>
-    <string name="hint_edit_confirm_password">Confirmar Password:</string>
+    <string name="hint_number">Numero</string>
+    <string name="hint_edit_confirm_password">Confirmar Password</string>
+
+<!--        Strings of Activity Register            -->
+
+    <string name="text_put_name">Preencha o seu Nome</string>
+    <string name="text_put_email">Preencha o seu Email</string>
+    <string name="text_missing_some_simbol">"@" Em falta</string>
+    <string name="text_missing_Gmail">"Gmail" Em falta</string>
+    <string name="text_missing_Com">".Com" Em falta</string>
+    <string name="text_put_password">Preencha a sua Password</string>
+    <string name="text_confirm_password">Confirme a sua Password</string>
+    <string name="text_differents_password">As Passwords são diferentes</string>
+    <string name="text_creating_account">Criando sua Conta...</string>
+    <string name="text_register_sucess">Parabéns, a sua Conta esta Criada</string>
+    <string name="text_error_register">Erro no Registo</string>
+
+<!--..........................................................................-->
 
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity__search">Search Files</string>
-    <string name="title_activity_new_">New_Activity</string>
-</resources>
+    <!--        Strings of Fragments Home           -->
+
+    <string name="all_files">TODOS CONTEÚDOS</string>
+    <string name="hint_search_files">Pesquisar...</string>
+
+
+    <!--..........................................................................-->
+
+
+
+
+
+    </resources>
