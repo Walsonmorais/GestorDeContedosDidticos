@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.AddFragment">
+
+    <ImageView
+        android:id="@+id/image_file"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="4dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/school_icon" />
+
+    <EditText
+        android:id="@+id/edit_title_files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title do Conteúdo"
+        android:layout_below="@+id/image_file"
+        android:layout_marginStart="0dp"
+        android:layout_margin="2dp"/>
+
+    <EditText
+        android:id="@+id/edit_author_files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Author"
+        android:layout_below="@+id/edit_title_files"
+        android:layout_margin="2dp"/>
+
+    <EditText
+        android:id="@+id/edit_description_files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição do Conteúdo"
+        android:layout_below="@+id/edit_author_files"
+        android:layout_margin="2dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_below="@id/edit_description_files"
+        android:text="Postar Conteúdo"
+        android:textColor="@color/extraColor"
+        android:background="@drawable/background_style_button"/>
+
+
+</RelativeLayout>

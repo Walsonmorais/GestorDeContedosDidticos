@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/tab_user_profile"/>
+
+        <item
+            android:id="@+id/nav_favorite"
+            android:title="Favorite"
+            android:icon="@drawable/ic_save"/>
+
+        <item
+            android:id="@+id/nav_books"
+            android:title="Books"
+            android:icon="@drawable/image_book"/>
+    </group>
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/tab_home"
-        android:title="@string/title_home" />
+        android:title="Communication">
+        <menu>
+            <item
+                android:id="@+id/nav_share_app"
+                android:title="Share App"
+                android:icon="@drawable/icon_share"/>
 
-    <item
-        android:id="@+id/navigation_add_data"
-        android:icon="@drawable/tab_add_data"
-        android:title="@string/title_publish"/>
+            <item
+                android:id="@+id/nav_about_us"
+                android:title="About"
+                android:icon="@drawable/icon_about_us"/>
 
+        </menu>
+    </item>
     <item
-        android:id="@+id/navigation_user_profile"
-        android:icon="@drawable/tab_user_profile"
-        android:title="@string/title_profile" />
+        android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_terms_conditions"
+                android:title="Terms and Conditions"/>
+
+        </menu>
+    </item>
 
 </menu>

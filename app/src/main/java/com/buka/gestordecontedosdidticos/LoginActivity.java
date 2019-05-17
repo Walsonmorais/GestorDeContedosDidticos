@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             progressDialog.dismiss();
 
-                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,Activity_Menu.class);
 
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

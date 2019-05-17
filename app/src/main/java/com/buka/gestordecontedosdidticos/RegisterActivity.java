@@ -133,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this,R.string.text_register_sucess, Toast.LENGTH_LONG).show();
                                     progressDialog.dismiss();
 
-                                    Intent intent = new Intent(RegisterActivity.this, MenuActivity.class);
+                                    Intent intent = new Intent(RegisterActivity.this, Activity_Menu.class);
                                     startActivity(intent);
                                     finish();
 

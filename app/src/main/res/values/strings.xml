@@ -34,7 +34,7 @@
     <string name="hint_number">Numero</string>
     <string name="hint_edit_confirm_password">Confirmar Password</string>
 
-<!--        Strings of Activity Register            -->
+    <!--        Strings of Activity Register            -->
 
     <string name="text_put_name">Preencha o seu Nome</string>
     <string name="text_put_email">Preencha o seu Email</string>
@@ -48,7 +48,7 @@
     <string name="text_register_sucess">Parabéns, a sua Conta esta Criada</string>
     <string name="text_error_register">Erro no Registo</string>
 
-<!--..........................................................................-->
+    <!--..........................................................................-->
 
 
     <!--        Strings of Fragments Home           -->
@@ -56,11 +56,13 @@
     <string name="all_files">TODOS CONTEÚDOS</string>
     <string name="hint_search_files">Pesquisar...</string>
 
-
     <!--..........................................................................-->
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
-
-    </resources>
+</resources>
