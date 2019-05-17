@@ -6,13 +6,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,17 +29,16 @@ import java.util.HashMap;
 
 public class Activity_Register extends AppCompatActivity {
 
-    EditText edit_name;
-    EditText edit_number;
-    EditText edit_email_account;
-    EditText edit_password_account;
-    EditText edit_confirm_password;
-    Button btn_save_account;
-    ImageView image_user;
-    private FirebaseAuth firebaseAuth;
+    private EditText edit_name, edit_email_account, edit_password_account, edit_confirm_password;
+    private RadioGroup rbt_group;
+    private RadioButton rbt_teacher, rbt_student;
+    private AutoCompleteTextView auto_complete_teacher, auto_complete_student;
+    private Button btn_save_account;
 
-    DatabaseReference reference;
-    ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference reference;
+
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,11 @@ public class Activity_Register extends AppCompatActivity {
         edit_confirm_password = findViewById(R.id.edit_confirm_password);
         edit_password_account = findViewById(R.id.edit_password_account);
         btn_save_account = findViewById(R.id.btn_save_account);
-        image_user = findViewById(R.id.image_user);
-        edit_number = findViewById(R.id.edit_number);
+        rbt_group = findViewById(R.id.rbt_group);
+        rbt_teacher = findViewById(R.id.rbt_teacher);
+        rbt_student = findViewById(R.id.rbt_student);
+        auto_complete_teacher = findViewById(R.id.auto_complete_teacher);
+        auto_complete_student = findViewById(R.id.auto_complete_student);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -59,94 +66,143 @@ public class Activity_Register extends AppCompatActivity {
                 String email_account = edit_email_account.getText().toString();
                 String password_Account = edit_password_account.getText().toString();
                 String confirm_password = edit_confirm_password.getText().toString();
-                String user_number = edit_number.getText().toString();
+                String teacher_occupations = auto_complete_teacher.getText().toString();
+                String student_occupations = auto_complete_student.getText().toString();
 
                 if (TextUtils.isEmpty(user_name)) {
                     Toast.makeText(Activity_Register.this, R.string.text_put_name, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (TextUtils.isEmpty(email_account)) {
-                    Toast.makeText(Activity_Register.this,R.string.text_put_email, Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(email_account)) {
+                    Toast.makeText(Activity_Register.this, R.string.text_put_email, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (!email_account.contains("@")) {
-                    Toast.makeText(Activity_Register.this,R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email_account).matches()) {
+                    Toast.makeText(Activity_Register.this, R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (!email_account.contains("Gmail") && !email_account.contains("gmail")) {
-                    Toast.makeText(Activity_Register.this,R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(password_Account)) {
+                    Toast.makeText(Activity_Register.this, R.string.text_put_password, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (!email_account.contains(".Com") && !email_account.contains(".com")) {
-                    Toast.makeText(Activity_Register.this,R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(confirm_password)) {
+                    Toast.makeText(Activity_Register.this, R.string.text_confirm_password, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (TextUtils.isEmpty(password_Account)) {
-                    Toast.makeText(Activity_Register.this,R.string.text_put_password, Toast.LENGTH_SHORT).show();
+                } else if (!password_Account.equals(confirm_password)) {
+                    Toast.makeText(Activity_Register.this, R.string.text_differents_password, Toast.LENGTH_SHORT).show();
 
-                }
-                else if (TextUtils.isEmpty(confirm_password)) {
-                    Toast.makeText(Activity_Register.this,R.string.text_confirm_password, Toast.LENGTH_SHORT).show();
+                } else if (!rbt_teacher.isChecked() && !rbt_student.isChecked()) {
+                    Toast.makeText(Activity_Register.this, "Verifique o seu status", Toast.LENGTH_SHORT).show();
+                } else if (rbt_teacher.isChecked() && teacher_occupations.isEmpty()) {
+                    auto_complete_teacher.setError("Preencha a sua profissão");
 
-                }
-                else if (!password_Account.equals(confirm_password)) {
-                    Toast.makeText(Activity_Register.this,R.string.text_differents_password, Toast.LENGTH_SHORT).show();
-
-                }
-                else {
+                } else if (rbt_student.isChecked() && student_occupations.isEmpty()) {
+                    auto_complete_student.setError("Preencha a sua profissão");
+                } else {
 
                     progressDialog = new ProgressDialog(Activity_Register.this);
                     progressDialog.setTitle(R.string.text_creating_account);
                     progressDialog.setMessage("Por favor Aguarde!");
                     progressDialog.show();
 
-                    RegisterUser(user_name, user_number, email_account, password_Account);
+                    registerUser(user_name, email_account, password_Account, teacher_occupations, student_occupations);
+                }
+            }
+        });
+
+        rbt_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rbt_teacher) {
+                    auto_complete_teacher.setVisibility(View.VISIBLE);
+                    auto_complete_student.setVisibility(View.GONE);
+
+                } else if (checkedId == R.id.rbt_student) {
+                    auto_complete_teacher.setVisibility(View.GONE);
+                    auto_complete_student.setVisibility(View.VISIBLE);
                 }
             }
         });
     }
 
-    private void RegisterUser( final String user_name, final String user_number,String email_account, String password_account) {
-
+    private void registerUser(final String user_name, String email_account, String password_account, final String teacher_occupations, final String student_occupations) {
         firebaseAuth.createUserWithEmailAndPassword(email_account, password_account)
-                .addOnCompleteListener(Activity_Register.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                        String userId = firebaseUser.getUid();
+                        if (task.isSuccessful()) {
 
-                        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            String uId = null;
 
-                        HashMap<String, String> hashUsers;
-                        hashUsers = new HashMap<>();
-                        hashUsers.put("id", userId);
-                        hashUsers.put("username", user_name);
-                        hashUsers.put("usernumber", user_number);
+                            if (currentUser != null) {
+                                uId = currentUser.getUid();
 
-                        reference.setValue(hashUsers).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+                                if (rbt_teacher.isChecked()) {
 
-                                if (task.isSuccessful()) {
+                                    reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
 
-                                    Toast.makeText(Activity_Register.this,R.string.text_register_sucess, Toast.LENGTH_LONG).show();
-                                    progressDialog.dismiss();
+                                    HashMap<String, String> hashUsers_Teacher = new HashMap<>();
+                                    hashUsers_Teacher.put("id", uId);
+                                    hashUsers_Teacher.put("username", user_name);
+                                    hashUsers_Teacher.put("teacher_occupations", teacher_occupations);
+                                    hashUsers_Teacher.put("image", "");
 
-                                    Intent intent = new Intent(Activity_Register.this, Activity_Menu.class);
-                                    startActivity(intent);
-                                    finish();
+                                    reference.setValue(hashUsers_Teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
 
-                                } else {
+                                            if (task.isSuccessful()) {
+                                                progressDialog.dismiss();
 
-                                    Toast.makeText(Activity_Register.this,R.string.text_error_register, Toast.LENGTH_LONG).show();
+                                                Toast.makeText(Activity_Register.this, "Conta criada com sucessos Docente", Toast.LENGTH_SHORT).show();
 
+                                                Intent intent = new Intent(getApplicationContext(), Activity_Menu.class);
+                                                startActivity(intent);
+
+                                            } else {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Activity_Register.this, "Erro ao criar conta", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+
+                                } else if (rbt_student.isChecked()) {
+
+                                    reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
+
+                                    HashMap<String, String> hashUsers_Student = new HashMap<>();
+                                    hashUsers_Student.put("id", uId);
+                                    hashUsers_Student.put("username", user_name);
+                                    hashUsers_Student.put("student_occupations", student_occupations);
+                                    hashUsers_Student.put("image", "");
+
+                                    reference.setValue(hashUsers_Student).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+
+                                                progressDialog.dismiss();
+
+                                                Toast.makeText(Activity_Register.this, "Conta criada com sucessos Aluno", Toast.LENGTH_SHORT).show();
+
+                                                Intent intent = new Intent(getApplicationContext(), Activity_Menu.class);
+                                                startActivity(intent);
+
+                                            } else {
+
+                                                progressDialog.dismiss();
+
+                                                Toast.makeText(Activity_Register.this, "Erro ao criar conta", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
                                 }
-
                             }
-                        });
+                        }
                     }
-                });
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Activity_Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,19 +65,14 @@ public class Activity_Login extends AppCompatActivity {
                 String password = edit_password.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
-
                     Toast.makeText(Activity_Login.this, R.string.text_put_email, Toast.LENGTH_SHORT).show();
-                } else if (!email.contains("@")) {
+
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     Toast.makeText(Activity_Login.this, R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
-
-                } else if (!email.contains("Gmail") && !email.contains("gmail")) {
-                    Toast.makeText(Activity_Login.this, R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
-
-                } else if (!email.contains(".Com") && !email.contains(".com")) {
-                    Toast.makeText(Activity_Login.this, R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Activity_Login.this, R.string.text_put_password, Toast.LENGTH_SHORT).show();
+
                 } else {
                     progressDialog = new ProgressDialog(Activity_Login.this);
                     progressDialog.setMessage("Por favor Aguarde!");

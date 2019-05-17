@@ -1,5 +1,6 @@
 package com.buka.gestordecontedosdidticos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -131,6 +132,9 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
 
         if (id == R.id.nav_profile) {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getApplicationContext(), Activity_Register.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_favorite) {
             Toast.makeText(this, "Favorite", Toast.LENGTH_SHORT).show();

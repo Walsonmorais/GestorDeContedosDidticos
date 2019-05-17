@@ -38,9 +38,7 @@
 
     <string name="text_put_name">Preencha o seu Nome</string>
     <string name="text_put_email">Preencha o seu Email</string>
-    <string name="text_missing_some_simbol">"@" Em falta</string>
-    <string name="text_missing_Gmail">"Gmail" Em falta</string>
-    <string name="text_missing_Com">".Com" Em falta</string>
+    <string name="text_missing_some_simbol">Email incorrecto</string>
     <string name="text_put_password">Preencha a sua Password</string>
     <string name="text_confirm_password">Confirme a sua Password</string>
     <string name="text_differents_password">As Passwords são diferentes</string>
