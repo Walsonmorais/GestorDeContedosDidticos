@@ -1,6 +1,5 @@
 package com.buka.gestordecontedosdidticos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -13,15 +12,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
-
-import com.buka.gestordecontedosdidticos.Fragments.HomeFragment;
-import com.buka.gestordecontedosdidticos.Fragments.ProfileFragment;
+import com.buka.gestordecontedosdidticos.Fragments.Fragment_Add_File;
+import com.buka.gestordecontedosdidticos.Fragments.Fragment_Home;
+import com.buka.gestordecontedosdidticos.Fragments.Fragment_Search;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -40,14 +39,13 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
     private CircleImageView nav_profile_image;
     private TextView nav_profile_name;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         viewPager = findViewById(R.id.viewpager);
         navigationView = findViewById(R.id.navigationView);
@@ -72,6 +70,8 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
 
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
     }
 
     private void setupTabIcons() {
@@ -89,10 +89,10 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new HomeFragment(), "Home");
-        adapter.addFrag(new ProfileFragment(),"Add Files");
-        adapter.addFrag(new Fragment_Search(), "Stand");
+        Activity_Menu.ViewPagerAdapter adapter = new Activity_Menu.ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new Fragment_Home(), "Home");
+        adapter.addFrag(new Fragment_Add_File(),"Add Files");
+        adapter.addFrag(new Fragment_Search(), "Search");
         viewPager.setAdapter(adapter);
     }
 
@@ -152,4 +152,5 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
     }
+
 }

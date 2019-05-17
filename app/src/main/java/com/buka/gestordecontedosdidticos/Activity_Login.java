@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class Activity_Login extends AppCompatActivity {
 
     EditText edit_email;
     EditText edit_password;
@@ -65,20 +65,20 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(email)) {
 
-                    Toast.makeText(LoginActivity.this, R.string.text_put_email, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, R.string.text_put_email, Toast.LENGTH_SHORT).show();
                 } else if (!email.contains("@")) {
-                    Toast.makeText(LoginActivity.this, R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
 
                 } else if (!email.contains("Gmail") && !email.contains("gmail")) {
-                    Toast.makeText(LoginActivity.this, R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
 
                 } else if (!email.contains(".Com") && !email.contains(".com")) {
-                    Toast.makeText(LoginActivity.this, R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(LoginActivity.this, R.string.text_put_password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, R.string.text_put_password, Toast.LENGTH_SHORT).show();
                 } else {
-                    progressDialog = new ProgressDialog(LoginActivity.this);
+                    progressDialog = new ProgressDialog(Activity_Login.this);
                     progressDialog.setMessage("Por favor Aguarde!");
                     progressDialog.show();
 
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void UserLogin(String email, String password) {
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Activity_Login.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             progressDialog.dismiss();
 
-                            Intent intent = new Intent(LoginActivity.this,Activity_Menu.class);
+                            Intent intent = new Intent(Activity_Login.this, Activity_Menu.class);
 
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 } else {
                     progressDialog.dismiss();
-                    Toast.makeText(LoginActivity.this, "Falha na Autenticação", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this, "Falha na Autenticação", Toast.LENGTH_SHORT).show();
                 }
 
             }

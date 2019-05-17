@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class RegisterActivity extends AppCompatActivity {
+public class Activity_Register extends AppCompatActivity {
 
     EditText edit_name;
     EditText edit_number;
@@ -62,40 +62,40 @@ public class RegisterActivity extends AppCompatActivity {
                 String user_number = edit_number.getText().toString();
 
                 if (TextUtils.isEmpty(user_name)) {
-                    Toast.makeText(RegisterActivity.this, R.string.text_put_name, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this, R.string.text_put_name, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (TextUtils.isEmpty(email_account)) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_put_email, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_put_email, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (!email_account.contains("@")) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (!email_account.contains("Gmail") && !email_account.contains("gmail")) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_missing_Gmail, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (!email_account.contains(".Com") && !email_account.contains(".com")) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_missing_Com, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (TextUtils.isEmpty(password_Account)) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_put_password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_put_password, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (TextUtils.isEmpty(confirm_password)) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_confirm_password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_confirm_password, Toast.LENGTH_SHORT).show();
 
                 }
                 else if (!password_Account.equals(confirm_password)) {
-                    Toast.makeText(RegisterActivity.this,R.string.text_differents_password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,R.string.text_differents_password, Toast.LENGTH_SHORT).show();
 
                 }
                 else {
 
-                    progressDialog = new ProgressDialog(RegisterActivity.this);
+                    progressDialog = new ProgressDialog(Activity_Register.this);
                     progressDialog.setTitle(R.string.text_creating_account);
                     progressDialog.setMessage("Por favor Aguarde!");
                     progressDialog.show();
@@ -109,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void RegisterUser( final String user_name, final String user_number,String email_account, String password_account) {
 
         firebaseAuth.createUserWithEmailAndPassword(email_account, password_account)
-                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(Activity_Register.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -130,16 +130,16 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 if (task.isSuccessful()) {
 
-                                    Toast.makeText(RegisterActivity.this,R.string.text_register_sucess, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Activity_Register.this,R.string.text_register_sucess, Toast.LENGTH_LONG).show();
                                     progressDialog.dismiss();
 
-                                    Intent intent = new Intent(RegisterActivity.this, Activity_Menu.class);
+                                    Intent intent = new Intent(Activity_Register.this, Activity_Menu.class);
                                     startActivity(intent);
                                     finish();
 
                                 } else {
 
-                                    Toast.makeText(RegisterActivity.this,R.string.text_error_register, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Activity_Register.this,R.string.text_error_register, Toast.LENGTH_LONG).show();
 
                                 }
 

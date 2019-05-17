@@ -1,4 +1,4 @@
-package com.buka.gestordecontedosdidticos;
+package com.buka.gestordecontedosdidticos.Fragments;
 
 
 import android.os.Bundle;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.buka.gestordecontedosdidticos.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_Search extends Fragment {
+public class Fragment_Add_File extends Fragment {
 
 
-    public Fragment_Search() {
+    public Fragment_Add_File() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class Fragment_Search extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__search, container, false);
+        return inflater.inflate(R.layout.fragment_add_file, container, false);
     }
 
 }
