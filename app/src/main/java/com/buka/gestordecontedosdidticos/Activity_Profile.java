@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.buka.gestordecontedosdidticos.models.Model_User;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -57,6 +59,7 @@ public class Activity_Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -144,6 +147,8 @@ public class Activity_Profile extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        animateBtn();
+
         if (firebaseUser == null) {
             Snackbar.make(relative, "Faça um Login na sua Conta", Snackbar.LENGTH_LONG)
                     .setAction("Entrar", new View.OnClickListener() {
@@ -154,6 +159,26 @@ public class Activity_Profile extends AppCompatActivity {
                         }
                     }).show();
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        animateBtn();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        animateBtn();
+
+    }
+
+    private void animateBtn() {
+        YoYo.with(Techniques.Tada)
+                .duration(2000)
+                .repeat(1)
+                .playOn(btn_edit_profile);
     }
 
     private void updateProfile(String edit_name_profile) {
