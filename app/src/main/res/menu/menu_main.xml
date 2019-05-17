@@ -1,8 +1,23 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.buka.gestordecontedosdidticos.MainActivity">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/refresh"
-        android:title="@string/action_refresh"/>
+        android:id="@+id/menu_login"
+        android:orderInCategory="100"
+        android:title="Login"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_create_account_email"
+        android:orderInCategory="100"
+        android:title="Criar conta com Email"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_log_out"
+        android:orderInCategory="100"
+        android:title="Log Out"
+        app:showAsAction="never" />
+
 </menu>

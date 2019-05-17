@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Fragment_Add_File">
+    tools:context=".fragments.Fragment_Add_File">
 
     <ImageView
         android:id="@+id/image_file"

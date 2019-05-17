@@ -1,5 +1,6 @@
 package com.buka.gestordecontedosdidticos;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +33,7 @@ public class Activity_Login extends AppCompatActivity {
     Button btn_login;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
+    Dialog addItemDialog;
 
     DatabaseReference reference;
 
@@ -40,22 +43,12 @@ public class Activity_Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         edit_email = findViewById(R.id.edit_email);
-
         edit_password = findViewById(R.id.edit_password);
-
         text_forget_password = findViewById(R.id.text_forget_password);
-
         btn_login = findViewById(R.id.btn_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
-
-        text_forget_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        progressDialog = new ProgressDialog(this);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +73,63 @@ public class Activity_Login extends AppCompatActivity {
 
                     UserLogin(email, password);
                 }
+            }
+        });
+
+
+        text_forget_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addItemDialog = new Dialog(Activity_Login.this);
+                addItemDialog.setContentView(R.layout.layout_recover_password);
+                addItemDialog.setTitle("Recuperar Password");
+
+                final EditText edit_recover_password = addItemDialog.findViewById(R.id.edit_recover_password);
+                final Button btn_sent_email_recover_password = addItemDialog.findViewById(R.id.btn_sent_email_recover_password);
+
+                btn_sent_email_recover_password.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String email = edit_recover_password.getText().toString();
+
+                        if (email.isEmpty()) {
+                            Toast.makeText(Activity_Login.this, "Preencha a Palavra", Toast.LENGTH_SHORT).show();
+                        } else {
+                            progressDialog.setMessage("Processando");
+                            progressDialog.show();
+                            firebaseAuth.sendPasswordResetEmail(email)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                            if (task.isSuccessful()) {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Activity_Login.this, "Entre no seu Email para recuperar sua conta", Toast.LENGTH_SHORT).show();
+                                                addItemDialog.dismiss();
+
+                                            } else {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Activity_Login.this, "Falhou", Toast.LENGTH_SHORT).show();
+                                                addItemDialog.dismiss();
+                                            }
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(Activity_Login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    }
+                });
+                addItemDialog.show();
+
+
+
             }
         });
 

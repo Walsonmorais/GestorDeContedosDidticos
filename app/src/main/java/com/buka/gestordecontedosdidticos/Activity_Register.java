@@ -172,7 +172,7 @@ public class Activity_Register extends AppCompatActivity {
                                     hashUsers_Student.put("id", uId);
                                     hashUsers_Student.put("username", user_name);
                                     hashUsers_Student.put("student_occupations", student_occupations);
-                                    hashUsers_Student.put("image", "");
+                                    hashUsers_Student.put("image", "https://firebasestorage.googleapis.com/v0/b/gestordeconteudosdidaticos.appspot.com/o/Users_Images%2Fuser.png?alt=media&token=9ca957db-6d4b-48c8-a7c3-a03925c48ebb");
 
                                     reference.setValue(hashUsers_Student).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

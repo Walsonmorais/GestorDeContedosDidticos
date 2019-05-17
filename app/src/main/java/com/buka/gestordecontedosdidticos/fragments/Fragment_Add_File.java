@@ -1,4 +1,4 @@
-package com.buka.gestordecontedosdidticos.Fragments;
+package com.buka.gestordecontedosdidticos.fragments;
 
 
 import android.os.Bundle;
