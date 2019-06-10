@@ -206,9 +206,6 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_favorite) {
             Toast.makeText(this, "Favorite", Toast.LENGTH_SHORT).show();
 
-        } else if (id == R.id.nav_books) {
-            Toast.makeText(this, "Books", Toast.LENGTH_SHORT).show();
-
         } else if (id == R.id.nav_share_app ){
             Toast.makeText(this, "Share App", Toast.LENGTH_SHORT).show();
 

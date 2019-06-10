@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="155dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent"
     android:padding="10dp">
 
@@ -13,7 +16,7 @@
         app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="2dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/tab_user_profile"/>
+        android:src="@drawable/image_user_offline"/>
 
     <TextView
         android:id="@+id/nav_profile_name"
@@ -25,6 +28,6 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="12dp"/>
 
 </RelativeLayout>

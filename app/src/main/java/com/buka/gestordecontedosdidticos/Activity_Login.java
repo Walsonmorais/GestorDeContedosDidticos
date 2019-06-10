@@ -27,13 +27,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Activity_Login extends AppCompatActivity {
 
-    EditText edit_email;
-    EditText edit_password;
-    TextView text_forget_password;
-    Button btn_login;
-    FirebaseAuth firebaseAuth;
-    ProgressDialog progressDialog;
-    Dialog addItemDialog;
+    private EditText edit_email;
+    private EditText edit_password;
+    private TextView text_register;
+    private TextView text_forget_password;
+    private Button btn_login;
+    private FirebaseAuth firebaseAuth;
+
+    private ProgressDialog progressDialog;
+    private Dialog addItemDialog;
+
 
     DatabaseReference reference;
 
@@ -46,9 +49,21 @@ public class Activity_Login extends AppCompatActivity {
         edit_password = findViewById(R.id.edit_password);
         text_forget_password = findViewById(R.id.text_forget_password);
         btn_login = findViewById(R.id.btn_login);
+        text_register = findViewById(R.id.text_register);
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
+
+
+        text_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity (new Intent(Activity_Login.this, Activity_Register.class));
+
+
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

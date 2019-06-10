@@ -5,13 +5,10 @@
             <corners android:radius="10dp"/>
             <solid android:color="@color/colorPrimary"/>
             <size android:height="50dp"/>
-            <stroke android:width="4dp"
-                android:color="@color/colorAccent"/>
-
 
             <gradient
                 android:startColor="@color/colorPrimary"
-                android:endColor="@color/colorPrimary"/>
+                android:endColor="@color/colorAccent"/>
         </shape>
     </item>
 </selector>

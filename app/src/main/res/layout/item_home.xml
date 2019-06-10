@@ -66,6 +66,15 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:textSize="15dp"
+            android:hint="Title:"/>
+
+        <TextView
             android:id="@+id/text_subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +89,6 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginStart="10dp"
-
             android:textSize="15dp"
             android:hint="Details: "/>
 

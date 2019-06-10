@@ -13,10 +13,6 @@
             android:title="Favorite"
             android:icon="@drawable/ic_save"/>
 
-        <item
-            android:id="@+id/nav_books"
-            android:title="Books"
-            android:icon="@drawable/image_book"/>
     </group>
 
     <item

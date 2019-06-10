@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 public class Activity_Register extends AppCompatActivity {
 
     private EditText edit_name, edit_email_account, edit_password_account, edit_confirm_password;
+    private TextView text_login;
     private RadioGroup rbt_group;
     private RadioButton rbt_teacher, rbt_student;
     private AutoCompleteTextView auto_complete_teacher, auto_complete_student;
@@ -49,6 +51,7 @@ public class Activity_Register extends AppCompatActivity {
         edit_email_account = findViewById(R.id.edit_email_account);
         edit_confirm_password = findViewById(R.id.edit_confirm_password);
         edit_password_account = findViewById(R.id.edit_password_account);
+        text_login = findViewById(R.id.text_login);
         btn_save_account = findViewById(R.id.btn_save_account);
         rbt_group = findViewById(R.id.rbt_group);
         rbt_teacher = findViewById(R.id.rbt_teacher);
@@ -57,6 +60,15 @@ public class Activity_Register extends AppCompatActivity {
         auto_complete_student = findViewById(R.id.auto_complete_student);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        text_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity( new Intent(Activity_Register.this, Activity_Login.class));
+
+            }
+        });
 
         btn_save_account.setOnClickListener(new View.OnClickListener() {
             @Override
