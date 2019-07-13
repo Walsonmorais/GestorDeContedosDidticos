@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -149,30 +148,8 @@ public class Activity_Profile extends AppCompatActivity {
 
         animateBtn();
 
-        if (firebaseUser == null) {
-            Snackbar.make(relative, "Faça um Login na sua Conta", Snackbar.LENGTH_LONG)
-                    .setAction("Entrar", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(Activity_Profile.this, Activity_Login.class);
-                            startActivity(intent);
-                        }
-                    }).show();
+            Snackbar.make(relative, "Welcome to Hey Manager App", Snackbar.LENGTH_LONG).show();
         }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        animateBtn();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        animateBtn();
-
-    }
 
     private void animateBtn() {
         YoYo.with(Techniques.Tada)
@@ -292,14 +269,14 @@ public class Activity_Profile extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menu_create_account_email) {
-            Intent intent = new Intent(Activity_Profile.this, Activity_Register.class);
+            Intent intent = new Intent(Activity_Profile.this, Activity_Teacher_Register.class);
             startActivity(intent);
             return true;
 
         }
 
         if (id == R.id.menu_login) {
-            Intent intent = new Intent(Activity_Profile.this, Activity_Login.class);
+            Intent intent = new Intent(Activity_Profile.this, Activity_Teacher_Login.class);
             startActivity(intent);
             return true;
 

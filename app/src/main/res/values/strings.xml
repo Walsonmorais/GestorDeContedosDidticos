@@ -5,11 +5,17 @@
     <string name="action_refresh">Actualizar</string>
     <string name="title_home">Home</string>
     <string name="title_publish">Publish</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_activity__profile">Profile</string>
     <string name="title_activity_login">Login</string>
-    <string name="title_activity_register">Register Users</string>
-    <string name="title_activity_search">Search Files</string>
+    <string name="title_activity_register">Register Teacher</string>
+    <string name="title_search">Search Files</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="title_activity__add__files">Add Files</string>
+    <string name="title_activity_user_posts">Posts</string>
+    <string name="title_activity_student_register">Register Student</string>
+
+
+
 
     <!-- TODO: Texts and Hints -->
 
@@ -24,6 +30,8 @@
     <string name="hint_password">Password</string>
     <string name="text_forget_password">Esqueceste a Password?</string>
     <string name="button_login">LOG IN</string>
+    <string name="text_select_status">Seleccione o seu Status</string>
+
 
     <!-- activity register -->
     <string name="text_load_picture">Carregue uma Foto</string>
@@ -52,16 +60,12 @@
     <!--        Strings of Fragments Home           -->
 
     <string name="all_files">TODOS CONTEÚDOS</string>
-    <string name="hint_search_files">Pesquisar...</string>
+    <string name="hint_search_files">Pesquisar conteúdos...</string>
 
     <!--..........................................................................-->
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity__profile">Profile</string>
 
 
 </resources>

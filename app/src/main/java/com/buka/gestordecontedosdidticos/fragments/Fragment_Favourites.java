@@ -9,14 +9,13 @@ import android.view.ViewGroup;
 
 import com.buka.gestordecontedosdidticos.R;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_Add_File extends Fragment {
+public class Fragment_Favourites extends Fragment {
 
 
-    public Fragment_Add_File() {
+    public Fragment_Favourites() {
         // Required empty public constructor
     }
 
@@ -25,7 +24,7 @@ public class Fragment_Add_File extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_file, container, false);
+        return inflater.inflate(R.layout.fragment_favourites, container, false);
     }
 
 }

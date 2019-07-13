@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/extraColor"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity_Register">
+    tools:context=".Activity_Teacher_Register">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:padding="6dp"
-        android:background="@drawable/shape_rectangle">
+        android:layout_below="@id/appBar"
+        android:padding="5dp"
+        android:background="@drawable/shape_retangle_start_activity">
 
     <EditText
-        android:id="@+id/edit_name"
+        android:id="@+id/edit_name_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_name"
@@ -24,8 +44,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <EditText
-        android:id="@+id/edit_email_account"
-        android:layout_below="@id/edit_name"
+        android:id="@+id/edit_email_account_teacher"
+        android:layout_below="@id/edit_name_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_email_account"
@@ -33,31 +53,31 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <EditText
-        android:id="@+id/edit_password_account"
-        android:layout_below="@id/edit_email_account"
+        android:id="@+id/edit_password_account_teacher"
+        android:layout_below="@id/edit_email_account_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_password_account"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
-        android:id="@+id/edit_confirm_password"
-        android:layout_below="@id/edit_password_account"
+        android:id="@+id/edit_confirm_password_teacher"
+        android:layout_below="@id/edit_password_account_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_edit_confirm_password"
+        android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
 
     <RadioGroup
-        android:id="@+id/rbt_group"
-        android:layout_below="@id/edit_confirm_password"
+        android:id="@+id/rbt_group_teacher"
+        android:layout_below="@id/edit_confirm_password_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-      >
+        android:layout_marginTop="10dp">
 
         <RadioButton
             android:id="@+id/rbt_teacher"
@@ -88,8 +108,8 @@
 
 
     <Button
-        android:id="@+id/btn_save_account"
-       android:layout_below="@id/rbt_group"
+        android:id="@+id/btn_save_account_teacher"
+       android:layout_below="@id/rbt_group_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -112,13 +132,14 @@
         android:background="@drawable/shape_rectangle_login">
 
     <TextView
-        android:id="@+id/text_login"
+        android:id="@+id/text_login_teacher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:layout_margin="10dp"
         android:textColor="@color/extraColor"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="Já tem uma Conta? Log In..."/>
 
     </LinearLayout>

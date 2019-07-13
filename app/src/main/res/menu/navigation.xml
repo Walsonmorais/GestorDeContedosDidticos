@@ -9,9 +9,14 @@
             android:icon="@drawable/tab_user_profile"/>
 
         <item
-            android:id="@+id/nav_favorite"
-            android:title="Favorite"
-            android:icon="@drawable/ic_save"/>
+            android:id="@+id/nav_add_files"
+            android:title="Add"
+            android:icon="@drawable/tab_add_data"/>
+
+        <item
+            android:id="@+id/nav_user_posts"
+            android:title="Posts"
+            android:icon="@drawable/ic_user_posts"/>
 
     </group>
 

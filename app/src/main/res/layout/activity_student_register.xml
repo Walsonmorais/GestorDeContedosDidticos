@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/extraColor"
+    tools:context=".Activity_Student_Register">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_below="@id/appBar"
+        android:padding="5dp"
+        android:background="@drawable/shape_retangle_start_activity">
+
+        <EditText
+            android:id="@+id/edit_name_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome do Estudante"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <EditText
+            android:id="@+id/edit_student_university"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite a Universidade"
+            android:layout_below="@id/edit_name_student"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+
+        <EditText
+            android:id="@+id/edit_email_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:layout_below="@id/edit_student_university"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <EditText
+            android:id="@+id/edit_password_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_email_student"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <Button
+            android:id="@+id/btn_save_student_account"
+            android:layout_below="@id/edit_password_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:background="@drawable/background_style_button"
+            android:text="SALVAR CONTA"
+            android:textColor="@color/extraColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear_layout_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_rectangle_login">
+
+        <TextView
+                android:id="@+id/text_login_student"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="@color/extraColor"
+            android:gravity="center"
+            android:text="Já tem uma Conta? Log In..."/>
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

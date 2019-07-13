@@ -6,7 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity_Login">
+    android:background="@color/extraColor"
+    tools:context=".Activity_Teacher_Login">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -15,6 +31,7 @@
         android:layout_height="130dp"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/appBar"
         app:civ_border_width="2dp"
         android:layout_marginBottom="24dp"
         app:civ_border_color="@color/colorAccent"
@@ -86,10 +103,11 @@
         android:id="@+id/text_register"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:layout_margin="10dp"
         android:textColor="@color/extraColor"
       android:gravity="center"
+        android:textStyle="bold"
         android:text="Não tem nenhuma Conta? Regista-se..."/>
 
     </LinearLayout>

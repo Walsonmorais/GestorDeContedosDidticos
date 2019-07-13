@@ -17,7 +17,7 @@
     <item
         android:id="@+id/menu_log_out"
         android:orderInCategory="100"
-        android:title="Log Out"
+        android:title="Sair"
         app:showAsAction="never" />
 
 </menu>

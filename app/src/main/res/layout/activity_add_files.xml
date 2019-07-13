@@ -1,0 +1,81 @@
+ <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    tools:context=".Activity_Add_Files">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </android.support.design.widget.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/image_file"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:layout_below="@id/appBar"
+            android:layout_marginBottom="4dp"/>
+
+
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_below="@id/image_file"
+            android:background="@drawable/shape_rectangle_search">
+
+
+            <EditText
+                android:id="@+id/edit_title_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titulo:"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_subject_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Disciplina:"
+                android:layout_below="@+id/edit_title_files"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_description_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição:"
+                android:layout_below="@+id/edit_subject_files"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="64dp"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_below="@id/edit_description_files"
+                android:text="Postar Conteúdo"
+                android:textColor="@color/extraColor"
+                android:background="@drawable/background_style_button"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>

@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.buka.gestordecontedosdidticos.fragments.Fragment_Add_File;
+import com.buka.gestordecontedosdidticos.fragments.Fragment_Favourites;
 import com.buka.gestordecontedosdidticos.fragments.Fragment_Home;
 import com.buka.gestordecontedosdidticos.fragments.Fragment_Search;
 import com.buka.gestordecontedosdidticos.models.Model_User;
@@ -50,6 +50,7 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
     private CircleImageView nav_profile_image;
     private TextView nav_profile_name;
 
+
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private FirebaseUser firebaseUser;
@@ -63,7 +64,7 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users_Teacher");
 
         viewPager = findViewById(R.id.viewpager);
         navigationView = findViewById(R.id.navigationView);
@@ -94,7 +95,7 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
         if (firebaseUser != null) {
             uId = firebaseUser.getUid();
 
-            databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Users_Teachers").child(uId);
 
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -131,21 +132,20 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
         super.onStart();
 
         if (firebaseUser ==  null){
-            Snackbar.make(drawerLayout, "Faça um Login na sua Conta", Snackbar.LENGTH_LONG)
-                    .setAction("Entrar", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(Activity_Menu.this, Activity_Login.class);
-                            startActivity(intent);
-                        }
-                    }).show();
+            SendUserToStartActivity();
         }
+    }
+
+    private void SendUserToStartActivity() {
+
+        Intent Intent_Start_Activity = new Intent(Activity_Menu.this,Activity_Start.class);
+        startActivity(Intent_Start_Activity);
     }
 
     private void setupTabIcons() {
         int[] tabIcons = {
                 R.drawable.tab_home,
-                R.drawable.tab_add_data,
+                R.drawable.ic_save,
                 R.drawable.ic_search_files,
 
         };
@@ -159,7 +159,7 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
     private void setupViewPager(ViewPager viewPager) {
         Activity_Menu.ViewPagerAdapter adapter = new Activity_Menu.ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new Fragment_Home(), "Home");
-        adapter.addFrag(new Fragment_Add_File(),"Add Files");
+        adapter.addFrag(new Fragment_Favourites(),"Favourites");
         adapter.addFrag(new Fragment_Search(), "Search");
         viewPager.setAdapter(adapter);
     }
@@ -195,18 +195,24 @@ public class Activity_Menu extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_profile) {
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-
             Intent intent = new Intent(getApplicationContext(), Activity_Profile.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_favorite) {
-            Toast.makeText(this, "Favorite", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_add_files) {
+            Intent intent = new Intent(getApplicationContext(),Activity_Add_Files.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_share_app ){
+        } else if (id == R.id.nav_user_posts) {
+
+            Intent intent = new Intent(getApplicationContext(),Activity_User_Posts.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_share_app ){
             Toast.makeText(this, "Share App", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_about_us) {

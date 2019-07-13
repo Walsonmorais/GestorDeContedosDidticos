@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/shape_rectangle_search">
+
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_rectangle_profile">
+
+
+
+        <RadioGroup
+            android:id="@+id/rbt_group_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <RadioButton
+                android:id="@+id/rbt_teacher"
+                android:text="Docente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rbt_student"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="Estudante" />
+
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_below="@id/rbt_group_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:background="@drawable/background_style_button"
+            android:text="CONTINUAR"
+            android:textColor="@color/extraColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear_layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_layout"
+        android:background="@drawable/shape_rectangle_login">
+
+    </RelativeLayout>
+
+</RelativeLayout>

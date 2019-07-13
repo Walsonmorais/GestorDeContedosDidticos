@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/extraColor"
+    tools:context=".Activity_Start">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_rectangle_search"
+        android:layout_below="@id/appBar"
+        android:layout_margin="40dp"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/edit_circle_image_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/appBar"
+        android:src="@drawable/school_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/colorAccent" />
+
+
+    <Button
+        android:id="@+id/btn_enter_account"
+        android:layout_below="@id/edit_circle_image_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"
+        android:background="@drawable/background_style_button"
+        android:text="@string/button_enter_account"
+        android:textColor="@color/extraColor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <Button
+        android:id="@+id/btn_create_account"
+        android:layout_below="@id/btn_enter_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"
+        android:background="@drawable/background_style_button"
+        android:text="@string/button_create_account"
+        android:textColor="@color/extraColor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <RelativeLayout
+        android:id="@+id/linear_layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_rectangle_search">
+
+        <TextView
+            android:id="@+id/text_about_App"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#706F6F"
+            android:gravity="center"
+            android:text="Saiba mais sobre a App..."/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
