@@ -28,6 +28,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/relative_layout_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -43,7 +44,8 @@
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-    <EditText
+
+        <EditText
         android:id="@+id/edit_email_account_teacher"
         android:layout_below="@id/edit_name_teacher"
         android:layout_width="match_parent"
@@ -62,67 +64,94 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
-        android:id="@+id/edit_confirm_password_teacher"
+        android:id="@+id/edit_department_teacher"
         android:layout_below="@id/edit_password_account_teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_edit_confirm_password"
-        android:inputType="textPassword"
+        android:hint="@string/hint_edit_departement"
+        android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
+        <TextView
+            android:id="@+id/text_create_email_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Não possui um Email? Crie já..."
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:gravity="end"
+            android:layout_below="@id/edit_department_teacher"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <RadioGroup
-        android:id="@+id/rbt_group_teacher"
-        android:layout_below="@id/edit_confirm_password_teacher"
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative2_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_below="@id/relative_layout_teacher"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_retangle_start_activity"
+        android:padding="5dp">
 
-        <RadioButton
-            android:id="@+id/rbt_teacher"
-            android:text="Docente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <AutoCompleteTextView
-            android:id="@+id/auto_complete_teacher"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/layout_relative_university"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:layout_alignParentStart="true">
 
-        <RadioButton
-            android:id="@+id/rbt_student"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="Estudante" />
+            <TextView
+                android:id="@+id/text_select_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Universidades"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <AutoCompleteTextView
-            android:id="@+id/auto_complete_student"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
 
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/rg_teacher_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_select_university"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_metro_teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="METROPOLITANA"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_gregorio_teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="G. SEMEDO"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+    </RelativeLayout>
 
 
     <Button
         android:id="@+id/btn_save_account_teacher"
-       android:layout_below="@id/rbt_group_teacher"
+        android:layout_below="@id/relative2_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
         android:textStyle="bold"
         android:background="@drawable/background_style_button"
         android:text="@string/button_save_account"
         android:textColor="@color/extraColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linear_layout_login"

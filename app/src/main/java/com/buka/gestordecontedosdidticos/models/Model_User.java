@@ -4,19 +4,18 @@ public class Model_User {
 
     String id;
     String username;
-    String teacher_occupations;
-    String student_occupations;
+    String departments;
     String image;
+
 
     public Model_User() {
     }
 
-    public Model_User(String id, String username, String teacher_occupations, String student_occupations, String image) {
+    public Model_User(String id, String username, String teacher_occupations, String departments, String image) {
         this.id = id;
         this.username = username;
-        this.teacher_occupations = teacher_occupations;
-        this.student_occupations = student_occupations;
         this.image = image;
+        this.departments = departments;
     }
 
     public String getId() {
@@ -35,27 +34,20 @@ public class Model_User {
         this.username = username;
     }
 
-    public String getTeacher_occupations() {
-        return teacher_occupations;
+    public String getDepartments() {
+        return departments;
     }
 
-    public void setTeacher_occupations(String teacher_occupations) {
-        this.teacher_occupations = teacher_occupations;
-    }
-
-    public String getStudent_occupations() {
-        return student_occupations;
-    }
-
-    public void setStudent_occupations(String student_occupations) {
-        this.student_occupations = student_occupations;
+    public void setDepartments(String departments) {
+        this.departments = departments;
     }
 
     public String getImage() {
         return image;
     }
-
     public void setImage(String image) {
         this.image = image;
     }
+
+
 }

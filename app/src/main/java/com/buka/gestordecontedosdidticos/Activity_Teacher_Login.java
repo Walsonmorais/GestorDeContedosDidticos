@@ -29,19 +29,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Activity_Teacher_Login extends AppCompatActivity {
 
-    private EditText edit_email;
-    private EditText edit_password;
-    private TextView text_register;
-    private TextView text_forget_password;
+    private EditText edit_email, edit_password;
+    private TextView text_register, text_forget_password;
     private Button btn_login;
+
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference reference;
 
     private ProgressDialog progressDialog;
     private Dialog addItemDialog;
 
-
-
-    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +66,8 @@ public class Activity_Teacher_Login extends AppCompatActivity {
         text_register = findViewById(R.id.text_register);
 
 
-
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
-
 
 
         text_register.setOnClickListener(new View.OnClickListener() {
@@ -98,11 +93,11 @@ public class Activity_Teacher_Login extends AppCompatActivity {
                         if (!rbt_teacher.isChecked() && !rbt_student.isChecked()) {
                             Toast.makeText(Activity_Teacher_Login.this, R.string.text_select_status, Toast.LENGTH_SHORT).show();
 
-                        }else if (rbt_teacher.isChecked()){
+                        } else if (rbt_teacher.isChecked()) {
 
                             Intent intent = new Intent(Activity_Teacher_Login.this, Activity_Teacher_Register.class);
                             startActivity(intent);
-                        }else if (rbt_student.isChecked()){
+                        } else if (rbt_student.isChecked()) {
 
                             Intent intent = new Intent(Activity_Teacher_Login.this, Activity_Student_Register.class);
                             startActivity(intent);
@@ -196,7 +191,6 @@ public class Activity_Teacher_Login extends AppCompatActivity {
                 addItemDialog.show();
 
 
-
             }
         });
 
@@ -216,7 +210,7 @@ public class Activity_Teacher_Login extends AppCompatActivity {
 
                             progressDialog.dismiss();
 
-                            Intent intent = new Intent(Activity_Teacher_Login.this, Activity_Menu.class);
+                            Intent intent = new Intent(Activity_Teacher_Login.this, Activity_Teacher_Menu.class);
 
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

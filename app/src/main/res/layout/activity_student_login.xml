@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/extraColor"
+    tools:context=".Activity_Student_Login">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView11"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/appBar"
+        app:civ_border_width="2dp"
+        android:layout_marginBottom="24dp"
+        app:civ_border_color="@color/colorAccent"
+        android:src="@drawable/image_user_offline" />
+
+
+    <EditText
+        android:id="@+id/edit_student_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@id/imageView11" />
+
+    <EditText
+        android:id="@+id/edit_student_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/hint_password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/edit_student_email" />
+
+    <TextView
+        android:id="@+id/txt_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:text="@string/text_forget_password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/edit_student_password"
+        android:layout_alignParentEnd="true" />
+
+
+    <Button
+        android:id="@+id/btn_login_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/background_style_button"
+        android:text="@string/button_login"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/extraColor"
+        android:layout_below="@id/txt_forget_password"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_rectangle_login">
+
+        <TextView
+            android:id="@+id/txt_register_student"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/extraColor"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Não tem nenhuma Conta? Regista-se..." />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+

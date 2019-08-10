@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
@@ -23,11 +24,24 @@ public class Activity_Start extends AppCompatActivity {
     private RadioButton rbt_teacher, rbt_student;
     private RadioGroup rbt_group;
     private TextView about_App;
-    private FirebaseUser firebaseUser_Status;
-    private DatabaseReference reference;
+
+    private FirebaseUser firebaseUser;
     private Dialog addItemDialog;
     ProgressDialog progressDialog;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (firebaseUser != null) {
+
+            Intent intent = new Intent(Activity_Start.this, Activity_Teacher_Menu.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +56,6 @@ public class Activity_Start extends AppCompatActivity {
         rbt_student = findViewById(R.id.rbt_student);
         button_next = findViewById(R.id.btn_next);
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
 
         btn_enter_account.setOnClickListener(new View.OnClickListener() {

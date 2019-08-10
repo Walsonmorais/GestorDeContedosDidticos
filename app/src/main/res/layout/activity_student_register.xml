@@ -26,38 +26,28 @@
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
-        android:id="@+id/relative_layout"
+        android:id="@+id/relative1_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_below="@id/appBar"
-        android:padding="5dp"
+        android:padding="4dp"
         android:background="@drawable/shape_retangle_start_activity">
 
         <EditText
             android:id="@+id/edit_name_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Estudante"
+            android:hint="Nome"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-        <EditText
-            android:id="@+id/edit_student_university"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite a Universidade"
-            android:layout_below="@id/edit_name_student"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-
 
         <EditText
             android:id="@+id/edit_email_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:layout_below="@id/edit_student_university"
+            android:layout_below="@id/edit_name_student"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
@@ -65,28 +55,145 @@
             android:id="@+id/edit_password_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_email_student"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:layout_below="@id/edit_email_student"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <Button
-            android:id="@+id/btn_save_student_account"
-            android:layout_below="@id/edit_password_student"
+        <TextView
+            android:id="@+id/text_create_email_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginRight="64dp"
-            android:layout_marginBottom="16dp"
+            android:text="Não possui um Email? Crie já..."
             android:textStyle="bold"
-            android:background="@drawable/background_style_button"
-            android:text="SALVAR CONTA"
-            android:textColor="@color/extraColor"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:layout_margin="8dp"
+            android:gravity="end"
+            android:layout_below="@id/edit_password_student"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative2_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative1_layout"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_retangle_start_activity"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/layout_relative_university"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/text_select_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Universidades"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+            <RadioGroup
+                android:id="@+id/rg_university_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_select_university"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_metro_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="METROPOLITANA"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_gregorio_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="G. SEMEDO"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_relative_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/text_select_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cursos"
+                android:layout_margin="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+            <RadioGroup
+                android:id="@+id/rg_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_select_course"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_computacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C. COMPUTAÇÃO"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_arquitetura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ARQUITETURA"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_econimia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ECONOMIA"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/rb_eng_civil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ENG. CIVÍL"
+                    android:layout_weight="1" />
+
+
+            </RadioGroup>
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_save_student_account"
+        android:layout_below="@id/relative2_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:textStyle="bold"
+        android:background="@drawable/background_style_button"
+        android:text="@string/button_save_account"
+        android:textColor="@color/extraColor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
     <LinearLayout
@@ -97,20 +204,17 @@
         android:background="@drawable/shape_rectangle_login">
 
         <TextView
-                android:id="@+id/text_login_student"
+            android:id="@+id/text_about_App"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
             android:textColor="@color/extraColor"
             android:gravity="center"
             android:text="Já tem uma Conta? Log In..."/>
 
     </LinearLayout>
-
-
-
 
 
 
