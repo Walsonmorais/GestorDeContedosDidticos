@@ -13,78 +13,113 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
+
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_choose_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    app:srcCompat="@drawable/ic_choose_file" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/add_image"
+
+    <RelativeLayout
+        android:id="@+id/relative_image"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher"
+        android:layout_height="wrap_content"
         android:layout_below="@id/appBar"
-        android:layout_marginBottom="4dp" />
+        android:layout_margin="6dp">
+
+
+        <ImageView
+            android:id="@+id/add_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="2dp"
+            android:background="@color/shapeColor"
+            android:scaleType="centerInside" />
+
+    </RelativeLayout>
 
 
     <RelativeLayout
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:layout_below="@id/add_image"
-        android:background="@drawable/shape_rectangle_search">
+        android:layout_below="@id/relative_image"
+        android:layout_margin="6dp">
 
 
         <EditText
             android:id="@+id/edit_add_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:hint="Área de Estudo:" />
+            android:hint="Área de Estudo:"
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/edit_add_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_add_subject"
             android:hint="Tema:"
-            android:maxLines="1"
-            android:layout_below="@+id/edit_add_subject" />
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/edit_add_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_add_theme"
             android:hint="Curso:"
-            android:maxLines="1"
-            android:layout_below="@+id/edit_add_theme" />
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/edit_add_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_add_course"
             android:hint="Ano:"
-            android:maxLines="1"
-            android:layout_below="@+id/edit_add_course" />
+            android:maxLines="1" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/r_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_layout"
+        android:layout_marginTop="12dp">
 
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:layout_below="@id/edit_add_year"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/background_style_button"
             android:text="Postar Conteúdo"
-            android:textColor="@color/extraColor"
-            android:background="@drawable/background_style_button" />
+            android:textStyle="bold"
+            android:textColor="@color/extraColor" />
+
 
     </RelativeLayout>
+
 
 </RelativeLayout>

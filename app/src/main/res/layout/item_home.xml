@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="5dp"
+        android:padding="2dp"
         android:background="@drawable/shape_retangle_start_activity">
 
         <LinearLayout
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_teacher_name"
+                android:id="@+id/textView_username"
                 android:layout_gravity="center"
                 android:hint="NOBRE MACABA"
                 android:textSize="16dp"
@@ -42,52 +42,61 @@
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp">
+            android:id="@+id/relative_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_retangle_start_activity">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:id="@+id/image_item_post"
-                android:background="@drawable/shape_retangle_start_activity" />
+                android:layout_height="250dp"
+                android:id="@+id/imageView_item_post" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/favourites"
                 app:srcCompat="@drawable/ic_save"
-                android:layout_margin="10dp"
-                android:layout_below="@id/image_item_post" />
+                android:id="@+id/icon_save" />
 
         </RelativeLayout>
 
+
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp">
 
             <TextView
                 android:id="@+id/hint_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorBlack"
-                android:text="Área de Estudo: " />
+                android:text="Área de Estudo:  " />
 
 
             <TextView
-                android:id="@+id/text_subject"
+                android:id="@+id/textView_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/hint_subject"
                 android:textSize="18dp"
                 android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:hint="Programação e Direito" />
+                android:textColor="@color/colorAccent" />
 
 
             <TextView
@@ -95,24 +104,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:textSize="18dp"
                 android:layout_below="@id/hint_subject"
                 android:textColor="@color/colorBlack"
-                android:text="Tema: " />
+                android:text="Tema:  " />
 
 
             <TextView
-                android:id="@+id/text_theme"
+                android:id="@+id/textView_theme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_below="@id/text_subject"
+                android:layout_below="@id/textView_subject"
                 android:layout_toEndOf="@id/hint_theme"
                 android:textSize="18dp"
                 android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:hint="Variaveis e Funções..." />
+                android:textColor="@color/colorAccent" />
 
 
             <TextView
@@ -120,48 +128,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:textSize="18dp"
                 android:layout_below="@id/hint_theme"
                 android:textColor="@color/colorBlack"
-                android:text="Curso: " />
+                android:text="Curso:  " />
 
 
             <TextView
-                android:id="@+id/text_course"
+                android:id="@+id/textView_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_below="@id/text_theme"
+                android:layout_below="@id/textView_theme"
                 android:layout_toEndOf="@id/hint_course"
                 android:textSize="18dp"
                 android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:hint="Arquitetura" />
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/hint_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:textSize="18dp"
                 android:layout_below="@id/hint_course"
                 android:textColor="@color/colorBlack"
-                android:text="Ano: " />
+                android:text="Ano:  " />
 
 
             <TextView
-                android:id="@+id/text_year"
+                android:id="@+id/textView_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_below="@id/text_course"
+                android:layout_below="@id/textView_course"
                 android:layout_toEndOf="@id/hint_year"
                 android:textSize="18dp"
                 android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:hint="1°" />
+                android:textColor="@color/colorAccent" />
 
 
         </RelativeLayout>

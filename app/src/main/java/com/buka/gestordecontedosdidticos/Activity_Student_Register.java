@@ -107,6 +107,7 @@ public class Activity_Student_Register extends AppCompatActivity {
                 String str_studentEmail = edit_student_email.getText().toString();
                 String str_studentPassword = edit_student_password.getText().toString();
 
+
                 if (TextUtils.isEmpty(str_studentName)) {
                     Toast.makeText(Activity_Student_Register.this, R.string.text_put_name, Toast.LENGTH_SHORT).show();
 

@@ -54,9 +54,11 @@ public class Activity_Teacher_Menu extends AppCompatActivity {
 
                 case R.id.icon_profile:
 
-                    SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+
+                    /*SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
                     editor.putString("profileid", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                    editor.apply();
+                    editor.apply();*/
+
                     selectedFragment = new Fragment_Teacher_Profile();
                     break;
 

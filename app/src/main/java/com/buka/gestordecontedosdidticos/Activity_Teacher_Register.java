@@ -43,14 +43,6 @@ public class Activity_Teacher_Register extends AppCompatActivity {
     private ProgressDialog pd;
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        Toast.makeText(this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_register);
@@ -74,9 +66,6 @@ public class Activity_Teacher_Register extends AppCompatActivity {
         password = findViewById(R.id.edit_password_account_teacher);
         department = findViewById(R.id.edit_department_teacher);
         radioGroup_teacher = findViewById(R.id.rg_teacher_university);
-        rb_metroT = findViewById(R.id.rb_metro_teacher);
-        rb_gregorioT = findViewById(R.id.rb_gregorio_teacher);
-
 
         text_login = findViewById(R.id.text_login_teacher);
         btn_save_account = findViewById(R.id.btn_save_account_teacher);
@@ -98,9 +87,6 @@ public class Activity_Teacher_Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                pd = new ProgressDialog(Activity_Teacher_Register.this);
-                pd.setMessage("Por favor Aguarde!");
-                pd.show();
 
                 String str_username = username.getText().toString();
                 String str_email = email.getText().toString();
@@ -108,53 +94,58 @@ public class Activity_Teacher_Register extends AppCompatActivity {
                 String str_department = department.getText().toString();
 
 
-                //String metro_university = rb_metro.getText().toString();
-                //String gregorio_university = rb_gregorio.getText().toString();
+                radioGroup_teacher.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int I) {
+
+                        radioButton_Options = radioGroup_teacher.findViewById(I);
+
+                        switch (I) {
+                            case R.id.rb_metro_teacher:
+
+                                showRadioButtonTeacher = radioButton_Options.getText().toString();
+
+                                break;
+
+                            case R.id.rb_gregorio_teacher:
+
+                                showRadioButtonTeacher = radioButton_Options.getText().toString();
+
+                                break;
+
+                            default:
+                        }
+
+                    }
+                });
 
 
                 if (TextUtils.isEmpty(str_username)) {
-                    Toast.makeText(Activity_Teacher_Register.this, R.string.text_put_name, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(str_email)) {
-                    Toast.makeText(Activity_Teacher_Register.this, R.string.text_put_email, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
 
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()) {
                     Toast.makeText(Activity_Teacher_Register.this, R.string.text_missing_some_simbol, Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(str_password)) {
-                    Toast.makeText(Activity_Teacher_Register.this, R.string.text_put_password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(str_department)) {
-                    Toast.makeText(Activity_Teacher_Register.this, "Digite os seus Departamentos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
+
+                } else if (showRadioButtonTeacher == null) {
+                    Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
+
                 } else {
 
-                    radioGroup_teacher.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                        @Override
-                        public void onCheckedChanged(RadioGroup group, int I) {
 
-                            radioButton_Options = radioGroup_teacher.findViewById(I);
+                    pd = new ProgressDialog(Activity_Teacher_Register.this);
+                    pd.setMessage("Por favor Aguarde!");
+                    pd.show();
 
-
-                            switch (I) {
-                                case R.id.rb_metro_teacher:
-
-                                    showRadioButtonTeacher = radioButton_Options.getText().toString();
-
-                                    break;
-
-                                case R.id.rb_gregorio_teacher:
-
-                                    showRadioButtonTeacher = radioButton_Options.getText().toString();
-
-                                    break;
-
-                                default:
-                            }
-
-                        }
-                    });
-
-                    registerUser_teacher(str_username, str_email, str_password, str_department, showRadioButtonTeacher);
+                    registerUser_teacher(str_username, str_email, str_password, str_department);
                 }
             }
         });
@@ -162,7 +153,7 @@ public class Activity_Teacher_Register extends AppCompatActivity {
 
     }
 
-    private void registerUser_teacher(final String username, String email, String password, final String department, final String showRadioButton) {
+    private void registerUser_teacher(final String username, String email, String password, final String department) {
 
         firebaseAuthTeacher.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -181,11 +172,12 @@ public class Activity_Teacher_Register extends AppCompatActivity {
                                 reference = FirebaseDatabase.getInstance().getReference().child("Users_Teacher").child(userId);
 
                                 HashMap<String, String> hashUsers_Teacher = new HashMap<>();
+
                                 hashUsers_Teacher.put("id", userId);
                                 hashUsers_Teacher.put("username", username);
                                 hashUsers_Teacher.put("department", department);
-                                hashUsers_Teacher.put("university", showRadioButton);
-                                hashUsers_Teacher.put("image", "");
+                                hashUsers_Teacher.put("university", showRadioButtonTeacher);
+
 
                                 reference.setValue(hashUsers_Teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -193,16 +185,18 @@ public class Activity_Teacher_Register extends AppCompatActivity {
 
                                         if (task.isSuccessful()) {
 
+                                            pd.dismiss();
+                                            Toast.makeText(Activity_Teacher_Register.this, "Registado com Sucesso...", Toast.LENGTH_SHORT).show();
 
                                             Intent intent = new Intent(Activity_Teacher_Register.this, Activity_Teacher_Menu.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
 
-                                            Toast.makeText(Activity_Teacher_Register.this, "Registado com Sucesso...", Toast.LENGTH_SHORT).show();
 
 
                                         } else {
 
+                                            pd.dismiss();
                                             Toast.makeText(Activity_Teacher_Register.this, "Erro ao criar conta...", Toast.LENGTH_SHORT).show();
                                         }
                                     }
@@ -216,6 +210,8 @@ public class Activity_Teacher_Register extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+
+                pd.dismiss();
                 Toast.makeText(Activity_Teacher_Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

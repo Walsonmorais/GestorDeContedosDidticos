@@ -88,7 +88,7 @@
 
                 <TextView
 
-                    android:id="@+id/text_course"
+                    android:id="@+id/textView_course"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -105,7 +105,7 @@
                     android:id="@+id/student_course"
                     android:textColor="@color/colorBlack"
                     android:textSize="20dp"
-                    android:layout_toEndOf="@id/text_course"
+                    android:layout_toEndOf="@id/textView_course"
                     android:textStyle="bold" />
 
             </RelativeLayout>
