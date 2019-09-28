@@ -2,56 +2,53 @@ package com.buka.gestordecontedosdidticos.models;
 
 public class Upload {
 
-    private String Subject;
-    private String Theme;
-    private String Course;
-    private String Year;
+    private String subject;
+    private String theme;
+    private String course;
+    private String year;
     private String filesUrl;
 
     public Upload() {
-
     }
 
     public Upload(String subject, String theme, String course, String year, String filesUrl) {
-
-        Subject = subject;
-        Theme = theme;
-        Course = course;
-        Year = year;
+        this.subject = subject;
+        this.theme = theme;
+        this.course = course;
+        this.year = year;
         this.filesUrl = filesUrl;
     }
 
     public String getSubject() {
-        return Subject;
+        return subject;
     }
 
     public void setSubject(String subject) {
-        Subject = subject;
-
+        this.subject = subject;
     }
 
     public String getTheme() {
-        return Theme;
+        return theme;
     }
 
     public void setTheme(String theme) {
-        this.Theme = theme;
+        this.theme = theme;
     }
 
     public String getCourse() {
-        return Course;
+        return course;
     }
 
     public void setCourse(String course) {
-        Course = course;
+        this.course = course;
     }
 
     public String getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(String year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getFilesUrl() {

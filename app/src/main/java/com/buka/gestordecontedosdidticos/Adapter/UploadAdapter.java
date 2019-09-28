@@ -20,10 +20,9 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.UploadView
     public Context pContext;
     public List<Upload> pUploads;
 
-    public UploadAdapter(Context context, List<Upload> uploads) {
-
-        pContext = context;
-        pUploads = uploads;
+    public UploadAdapter(Context pContext, List<Upload> pUploads) {
+        this.pContext = pContext;
+        this.pUploads = pUploads;
     }
 
     @NonNull
@@ -44,7 +43,7 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.UploadView
         uploadViewHolder.textViewCourse.setText(upload.getCourse());
         uploadViewHolder.textViewYear.setText(upload.getYear());
 
-        Picasso.get().load(upload.getFilesUrl()).fit().into(uploadViewHolder.imageViewFile);
+        Picasso.get().load(upload.getFilesUrl()).into(uploadViewHolder.imageViewFile);
 
     }
 
