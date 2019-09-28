@@ -99,7 +99,7 @@ public class Activity_Start extends AppCompatActivity {
                         }else if (rbt_student.isChecked()){
 
 
-                            Intent intent = new Intent(Activity_Start.this, Activity_Teacher_Menu.class);
+                            Intent intent = new Intent(Activity_Start.this, Activity_Add_Files.class);
                             startActivity(intent);
 
                         } else {

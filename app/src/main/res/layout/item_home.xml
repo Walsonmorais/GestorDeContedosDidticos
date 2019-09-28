@@ -34,7 +34,7 @@
                 android:id="@+id/textView_username"
                 android:layout_gravity="center"
                 android:hint="NOBRE MACABA"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"/>
 
@@ -46,12 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
+            android:padding="5dp"
             android:background="@drawable/shape_retangle_start_activity">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:id="@+id/imageView_item_post" />
 
         </RelativeLayout>

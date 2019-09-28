@@ -6,5 +6,7 @@
     <color name="shapeColor">#E2E0E0</color>
     <color name="extraColor">#FFFFFF</color>
     <color name="colorBlack">#292626</color>
+    <color name="colorButton">#7A7A7A</color>
+    <color name="menuColor">#D8D6D6</color>
 
 </resources>

@@ -44,7 +44,7 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.UploadView
         uploadViewHolder.textViewCourse.setText(upload.getCourse());
         uploadViewHolder.textViewYear.setText(upload.getYear());
 
-        Picasso.get().load(upload.getImageUrl()).fit().into(uploadViewHolder.imageViewFile);
+        Picasso.get().load(upload.getFilesUrl()).fit().into(uploadViewHolder.imageViewFile);
 
     }
 

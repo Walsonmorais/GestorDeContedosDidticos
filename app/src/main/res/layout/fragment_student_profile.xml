@@ -123,9 +123,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="100dp"
                     android:layout_marginLeft="100dp"
-                    android:textColor="@color/extraColor"
+                    android:textColor="@color/colorButton"
                     android:hint="Editar Perfil"
-                    android:background="@drawable/background_style_button" />
+                    android:background="@drawable/shape_retangle_menu" />
 
             </LinearLayout>
 

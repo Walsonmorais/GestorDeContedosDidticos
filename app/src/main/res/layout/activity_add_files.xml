@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/extraColor"
     android:layout_height="match_parent"
     tools:context=".Activity_Add_Files">
 
@@ -39,22 +40,42 @@
     </android.support.design.widget.AppBarLayout>
 
 
+
     <RelativeLayout
         android:id="@+id/relative_image"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/appBar"
-        android:layout_margin="6dp">
+        android:padding="4dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_retangle_start_activity"
+        android:layout_margin="12dp">
 
 
         <ImageView
             android:id="@+id/add_image"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:padding="2dp"
-            android:background="@color/shapeColor"
-            android:scaleType="centerInside" />
+            android:layout_centerInParent="true" />
 
+
+        <RelativeLayout
+            android:background="@color/colorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_notification_pdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:maxLines="1"
+                android:text="[+] Select the file (Image or Pdf)..."
+                android:textColor="@color/extraColor" />
+
+        </RelativeLayout>
     </RelativeLayout>
 
 
@@ -110,13 +131,14 @@
             android:id="@+id/btn_upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="14dp"
-            android:layout_marginRight="100dp"
-            android:background="@drawable/background_style_button"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/shape_retangle_menu"
             android:text="Postar Conteúdo"
+            android:textSize="14dp"
             android:textStyle="bold"
-            android:textColor="@color/extraColor" />
+            android:textColor="@color/colorButton" />
 
 
     </RelativeLayout>

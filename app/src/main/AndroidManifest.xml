@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".Activity_Add_Files"
-            android:label="@string/title_activity__add__files" />
+            android:label="@string/title_activity_add_files"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".Activity_Student_Login"

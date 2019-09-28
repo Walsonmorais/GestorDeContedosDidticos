@@ -6,19 +6,19 @@ public class Upload {
     private String Theme;
     private String Course;
     private String Year;
-    private String ImageUrl;
+    private String filesUrl;
 
     public Upload() {
 
     }
 
-    public Upload(String subject, String theme, String course, String year, String imageUrl) {
+    public Upload(String subject, String theme, String course, String year, String filesUrl) {
 
         Subject = subject;
         Theme = theme;
         Course = course;
         Year = year;
-        ImageUrl = imageUrl;
+        this.filesUrl = filesUrl;
     }
 
     public String getSubject() {
@@ -54,11 +54,11 @@ public class Upload {
         Year = year;
     }
 
-    public String getImageUrl() {
-        return ImageUrl;
+    public String getFilesUrl() {
+        return filesUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+    public void setFilesUrl(String filesUrl) {
+        this.filesUrl = filesUrl;
     }
 }
