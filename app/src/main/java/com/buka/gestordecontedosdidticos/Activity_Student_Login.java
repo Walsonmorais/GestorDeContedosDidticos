@@ -47,16 +47,6 @@ public class Activity_Student_Login extends AppCompatActivity {
         setContentView(R.layout.activity_student_login);
 
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         edt_studentEmail = findViewById(R.id.edit_email_student);
         edt_studentPassword = findViewById(R.id.edit_password_student);

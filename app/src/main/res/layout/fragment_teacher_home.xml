@@ -5,49 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/shapeColor"
     tools:context=".fragments_teacher.Fragment_Teacher_Home">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/appBar">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_all_files"
-        android:textSize="15dp"
-        android:text="@string/all_files"
-        android:textStyle="bold"
-        android:layout_margin="10dp"/>
 
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView_teacher_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_rectangle"
             android:orientation="vertical"
-            android:layout_below="@+id/text_all_files"
-            android:layout_margin="10dp"
-            android:padding="5dp"/>
+            android:padding="8dp" />
 
         <ProgressBar
             android:id="@+id/progress_circular"
@@ -58,4 +27,3 @@
     </RelativeLayout>
 
 
-</RelativeLayout>

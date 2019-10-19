@@ -38,12 +38,12 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.UploadView
 
         Upload upload = pUploads.get(position);
 
-        uploadViewHolder.textViewSubject.setText(upload.getSubject());
+
         uploadViewHolder.textViewTheme.setText(upload.getTheme());
         uploadViewHolder.textViewCourse.setText(upload.getCourse());
-        uploadViewHolder.textViewYear.setText(upload.getYear());
+        uploadViewHolder.imageViewFile.setBackgroundResource(R.drawable.pdf_file);
+        uploadViewHolder.textViewNotification.setText(upload.getFilesUrl());
 
-        Picasso.get().load(upload.getFilesUrl()).into(uploadViewHolder.imageViewFile);
 
     }
 
@@ -54,22 +54,23 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.UploadView
 
     public class UploadViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewSubject;
+
         public TextView textViewTheme;
         public TextView textViewCourse;
-        public TextView textViewYear;
         public TextView textViewUsername;
         public ImageView imageViewFile;
+        public TextView textViewNotification;
+
 
         public UploadViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewSubject = itemView.findViewById(R.id.textView_subject);
+
             textViewTheme = itemView.findViewById(R.id.textView_theme);
             textViewCourse = itemView.findViewById(R.id.textView_course);
-            textViewYear = itemView.findViewById(R.id.textView_year);
             textViewUsername = itemView.findViewById(R.id.textView_username);
             imageViewFile = itemView.findViewById(R.id.imageView_item_post);
+            textViewNotification = itemView.findViewById(R.id.text_notification_menu);
 
         }
     }

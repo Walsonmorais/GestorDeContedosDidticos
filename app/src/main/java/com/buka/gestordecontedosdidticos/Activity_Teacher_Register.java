@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -38,6 +39,7 @@ public class Activity_Teacher_Register extends AppCompatActivity {
     String showRadioButtonTeacher;
 
 
+
     private FirebaseAuth firebaseAuthTeacher;
     private DatabaseReference reference;
     private ProgressDialog pd;
@@ -47,18 +49,10 @@ public class Activity_Teacher_Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_register);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
-                finish();
-
-            }
-        });
 
 
         username = findViewById(R.id.edit_name_teacher);
@@ -66,6 +60,7 @@ public class Activity_Teacher_Register extends AppCompatActivity {
         password = findViewById(R.id.edit_password_account_teacher);
         department = findViewById(R.id.edit_department_teacher);
         radioGroup_teacher = findViewById(R.id.rg_teacher_university);
+
 
         text_login = findViewById(R.id.text_login_teacher);
         btn_save_account = findViewById(R.id.btn_save_account_teacher);
@@ -88,13 +83,15 @@ public class Activity_Teacher_Register extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
                 String str_username = username.getText().toString();
                 String str_email = email.getText().toString();
                 String str_password = password.getText().toString();
                 String str_department = department.getText().toString();
 
-
                 radioGroup_teacher.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+
                     @Override
                     public void onCheckedChanged(RadioGroup group, int I) {
 
@@ -115,7 +112,6 @@ public class Activity_Teacher_Register extends AppCompatActivity {
 
                             default:
                         }
-
                     }
                 });
 
@@ -135,9 +131,8 @@ public class Activity_Teacher_Register extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(str_department)) {
                     Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
 
-                } else if (showRadioButtonTeacher == null) {
+                } else if (TextUtils.isEmpty(showRadioButtonTeacher)) {
                     Toast.makeText(Activity_Teacher_Register.this, "Todos os Campos são Obrigatórios...", Toast.LENGTH_SHORT).show();
-
                 } else {
 
 
@@ -148,10 +143,12 @@ public class Activity_Teacher_Register extends AppCompatActivity {
                     registerUser_teacher(str_username, str_email, str_password, str_department);
                 }
             }
+
         });
 
 
     }
+
 
     private void registerUser_teacher(final String username, String email, String password, final String department) {
 

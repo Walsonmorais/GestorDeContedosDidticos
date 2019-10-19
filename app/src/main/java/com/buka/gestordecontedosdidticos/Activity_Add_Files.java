@@ -1,17 +1,22 @@
 package com.buka.gestordecontedosdidticos;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -29,22 +34,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 public class Activity_Add_Files extends AppCompatActivity {
 
 
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private static final int PICK_PDF_REQUEST = 2;
+    private static final int PICK_WORD_FILE = 1;
+    private static final int PICK_PDF_FILE = 2;
+
 
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
 
 
+
     private ImageView imageAdd;
-    private ImageView image_choose_file;
     private EditText edit_subject, edit_theme, edit_course, edit_year;
     private TextView text_notification_pdf;
     private Button btn_upload;
@@ -58,21 +61,8 @@ public class Activity_Add_Files extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_files);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(Activity_Add_Files.this, Activity_Teacher_Menu.class));
-                finish();
-            }
-        });
 
 
-        image_choose_file = findViewById(R.id.image_choose_file);
         imageAdd = findViewById(R.id.add_image);
 
         edit_subject = findViewById(R.id.edit_add_subject);
@@ -89,15 +79,6 @@ public class Activity_Add_Files extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Uploads");
         databaseReference = FirebaseDatabase.getInstance().getReference("Uploads");
 
-
-        image_choose_file.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                showFilePickDialog();
-            }
-        });
 
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,9 +109,9 @@ public class Activity_Add_Files extends AppCompatActivity {
 
     private void showFilePickDialog() {
 
-        String options[] = {"Imagem", "Conteúdo Pdf"};
+        String options[] = {"Ms Word Files", "Pdf Files"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("O pretendes postar?");
+        builder.setTitle("Select File");
 
 
         builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -139,12 +120,13 @@ public class Activity_Add_Files extends AppCompatActivity {
 
                 if (which == 0) {
 
-                    selectImageFiles();
+
+                    selectWordFile();
 
                 }
                 if (which == 1) {
 
-                    selectPdfFiles();
+                    selectPdfFile();
 
                 }
 
@@ -152,7 +134,6 @@ public class Activity_Add_Files extends AppCompatActivity {
         });
         builder.create().show();
     }
-
 
 
 
@@ -207,24 +188,27 @@ public class Activity_Add_Files extends AppCompatActivity {
             Toast.makeText(Activity_Add_Files.this, "No file selected", Toast.LENGTH_SHORT).show();
         }
 
-        }
-
-
-    private void selectImageFiles() {
-
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
-    private void selectPdfFiles() {
+
+    private void selectWordFile() {
+
+
+        Intent intentWord = new Intent();
+        intentWord.setType("application/docx");
+        intentWord.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intentWord.createChooser(intentWord, "Select Ms Word File"), PICK_WORD_FILE);
+
+    }
+
+    private void selectPdfFile() {
 
         Intent intentPdf = new Intent();
         intentPdf.setType("application/pdf");
         intentPdf.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intentPdf, PICK_PDF_REQUEST);
+        startActivityForResult(intentPdf, PICK_PDF_FILE);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -232,23 +216,51 @@ public class Activity_Add_Files extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
 
-            if (requestCode == PICK_IMAGE_REQUEST) {
+            if (requestCode == PICK_WORD_FILE) {
 
                 filesUri = data.getData();
-                Picasso.get().load(filesUri).into(imageAdd);
-                text_notification_pdf.setText(null);
 
-            } else if (requestCode == PICK_PDF_REQUEST) {
+
+                imageAdd.setBackgroundResource(R.drawable.ms_word);
+                text_notification_pdf.setText("  ficheiro: " + filesUri.getLastPathSegment() + "  ");
+
+
+            } else if (requestCode == PICK_PDF_FILE) {
 
                 filesUri = data.getData();
-                text_notification_pdf.setText("The file is: " + filesUri.getLastPathSegment());
-                imageAdd.setImageURI(Uri.EMPTY);
+                imageAdd.setBackgroundResource(R.drawable.pdf_file);
+                text_notification_pdf.setText("  ficheiro: " + filesUri.getLastPathSegment() + "  ");
+
 
             }
         } else {
-            Toast.makeText(Activity_Add_Files.this, "No file selected", Toast.LENGTH_SHORT).show();
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main3, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_close) {
+
+            Intent intent = new Intent(Activity_Add_Files.this, Activity_Teacher_Menu.class);
+            startActivity(intent);
+        } else if (id == R.id.action_files) {
+
+            showFilePickDialog();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

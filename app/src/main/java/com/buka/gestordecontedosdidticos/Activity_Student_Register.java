@@ -3,6 +3,7 @@ package com.buka.gestordecontedosdidticos;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -58,17 +59,11 @@ public class Activity_Student_Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_register);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
 
-            }
-        });
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
 
 
         edit_student_name = findViewById(R.id.edit_name_student);
@@ -88,7 +83,7 @@ public class Activity_Student_Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Activity_Student_Register.this, Activity_Teacher_Login.class);
+                Intent intent = new Intent(Activity_Student_Register.this, Activity_Student_Login.class);
                 startActivity(intent);
 
             }
@@ -173,10 +168,6 @@ public class Activity_Student_Register extends AppCompatActivity {
                                     break;
 
                                 case R.id.rb_econimia:
-                                    showRadioButtonCourse = rb_options_course.getText().toString();
-                                    break;
-
-                                case R.id.rb_eng_civil:
                                     showRadioButtonCourse = rb_options_course.getText().toString();
                                     break;
 

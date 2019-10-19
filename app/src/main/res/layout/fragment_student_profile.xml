@@ -63,69 +63,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="12dp"
-                android:padding="8dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/shape_retangle_start_activity">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/image_student_profile"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/image_user_offline"
-                    app:civ_border_color="@color/colorAccent"
-                    app:civ_border_width="2dp" />
-
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/mid_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-
-                    android:id="@+id/textView_course"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:text="Curso:"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="ARQUITETURA"
-                    android:layout_marginLeft="5dp"
-                    android:maxLines="2"
-                    android:id="@+id/student_course"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20dp"
-                    android:layout_toEndOf="@id/textView_course"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/circle_image_profile"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
-
-                <Button
-                    android:id="@+id/btn_edit_student_profile"
+                <RelativeLayout
+                    android:id="@+id/mid_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginLeft="100dp"
-                    android:textColor="@color/colorButton"
-                    android:hint="Editar Perfil"
-                    android:background="@drawable/shape_retangle_menu" />
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+
+                        android:id="@+id/textView_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold"
+                        android:text="Curso:"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Arquitetura"
+                        android:layout_marginLeft="5dp"
+                        android:singleLine="true"
+                        android:id="@+id/student_course"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"
+                        android:layout_toEndOf="@id/textView_course"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
 
             </LinearLayout>
 
@@ -153,9 +125,7 @@
                 android:id="@+id/recyclerView_student_favourites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:layout_margin="8dp"
-                android:background="@drawable/shape_retangle_start_activity" />
+                android:padding="6dp" />
 
         </LinearLayout>
 

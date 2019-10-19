@@ -1,17 +1,16 @@
 package com.buka.gestordecontedosdidticos;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.buka.gestordecontedosdidticos.fragments_teacher.Fragment_Teacher_Profile;
 import com.buka.gestordecontedosdidticos.fragments_teacher.Fragment_Teacher_Home;
-import com.buka.gestordecontedosdidticos.fragments_teacher.Fragment_Teacher_Search;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity_Teacher_Menu extends AppCompatActivity {
@@ -20,15 +19,21 @@ public class Activity_Teacher_Menu extends AppCompatActivity {
     BottomNavigationView buttonNavigationView;
     Fragment selectedFragment = null;
 
+    ActionBar actionBar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_menu);
 
+        actionBar = getSupportActionBar();
+
+
 
         buttonNavigationView = findViewById(R.id.bottom_navigation);
-
         buttonNavigationView.setOnNavigationItemSelectedListener(navigationSelectedItemListener);
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new Fragment_Teacher_Home()).commit();
@@ -40,11 +45,8 @@ public class Activity_Teacher_Menu extends AppCompatActivity {
 
             switch (menuItem.getItemId()) {
                 case R.id.icon_home:
-                    selectedFragment = new Fragment_Teacher_Home();
-                    break;
 
-                case R.id.icon_search:
-                    selectedFragment = new Fragment_Teacher_Search();
+                    selectedFragment = new Fragment_Teacher_Home();
                     break;
 
                 case R.id.icon_add:
@@ -71,4 +73,7 @@ public class Activity_Teacher_Menu extends AppCompatActivity {
         }
     };
 
+
 }
+
+

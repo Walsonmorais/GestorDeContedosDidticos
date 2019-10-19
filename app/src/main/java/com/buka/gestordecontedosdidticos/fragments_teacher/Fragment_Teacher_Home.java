@@ -3,22 +3,27 @@ package com.buka.gestordecontedosdidticos.fragments_teacher;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 
-import com.buka.gestordecontedosdidticos.Activity_Add_Files;
 import com.buka.gestordecontedosdidticos.Adapter.UploadAdapter;
 import com.buka.gestordecontedosdidticos.R;
 import com.buka.gestordecontedosdidticos.models.Upload;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +35,8 @@ import java.util.List;
 
 
 public class Fragment_Teacher_Home extends Fragment {
+
+    FirebaseAuth firebaseAuth;
 
     ProgressBar progressBarCircular;
 
@@ -45,6 +52,7 @@ public class Fragment_Teacher_Home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+        firebaseAuth = FirebaseAuth.getInstance();
 
         View view = inflater.inflate(R.layout.fragment_teacher_home, container, false);
 
@@ -95,4 +103,25 @@ public class Fragment_Teacher_Home extends Fragment {
 
     }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        return super.onOptionsItemSelected(item);
+    }
 }

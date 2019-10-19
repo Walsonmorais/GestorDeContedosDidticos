@@ -2,22 +2,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menu_login"
-        android:orderInCategory="100"
-        android:title="Login"
-        app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_create_account_email"
+        android:id="@+id/action_search"
         android:orderInCategory="100"
-        android:title="Criar conta com Email"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_log_out"
-        android:orderInCategory="100"
-        android:title="Sair"
-        app:showAsAction="never" />
+        android:title="Search"
+        android:icon="@drawable/ic_search_files"
+        app:showAsAction="always"
+        android:iconTint="@color/extraColor"
+        app:actionViewClass="android.widget.SearchView" />
 
 </menu>

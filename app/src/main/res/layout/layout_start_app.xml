@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:padding="6dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/shape_retangle_start_activity">
+        android:background="@drawable/shape_rectangle_search">
 
 
 

@@ -7,14 +7,11 @@
         android:icon="@drawable/tab_home"
         android:title="@string/title_home" />
 
-    <item
-        android:id="@+id/icon_search"
-        android:icon="@drawable/ic_search_files"
-        android:title="@string/title_search" />
+
 
     <item
         android:id="@+id/icon_add"
-        android:icon="@drawable/tab_add_data"
+        android:icon="@drawable/ic_add"
         android:title="@string/title_publish" />
 
     <item

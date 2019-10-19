@@ -1,23 +1,24 @@
 <resources>
 
     <!-- TODO: Names activities and fragments -->
-    <string name="app_name">Gestor De Conteúdos Didáticos</string>
+    <string name="app_name">Hey Manager</string>
     <string name="action_refresh">Actualizar</string>
     <string name="title_home">Home</string>
     <string name="title_publish">Add</string>
     <string name="title_activity__profile">Profile</string>
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_register">Register Teacher</string>
+    <string name="title_activity_login_teacher">Teacher</string>
+    <string name="title_activity_login_student">Student</string>
     <string name="title_search">Search Files</string>
     <string name="title_activity_menu">Menu</string>
-    <string name="title_activity_add_files">Add Files</string>
+    <string name="title_activity_add_files">Post</string>
     <string name="title_activity_student_register">Register Student</string>
+    <string name="title_activity_teacher_register">Register Teacher</string>
 
 
     <!-- TODO: Texts and Hints -->
 
     <!-- activity main -->
-    <string name="button_create_account">REGISTA-SE</string>
+    <string name="button_create_account">CRIAR CONTA</string>
     <string name="button_enter_account">INICIAR SECÇÃO</string>
 
     <!-- activity loggin -->
@@ -35,9 +36,9 @@
     <string name="hint_name">Nome</string>
     <string name="hint_email_account">Email</string>
     <string name="hint_password_account">Password</string>
-    <string name="button_save_account">ENTRAR</string>
+    <string name="button_save_account">  Salvar Conta  </string>
     <string name="hint_number">Numero</string>
-    <string name="hint_edit_departement">Departamentos</string>
+    <string name="hint_edit_department">Departamento</string>
 
     <!--        Strings of Activity Register            -->
 
